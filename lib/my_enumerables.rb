@@ -5,6 +5,12 @@ module Enumerable
 
     self
   end
+
+  def my_select
+    array = []
+    my_each { |item| array << item if yield(item) }
+    array
+  end
 end
 
 # You will first have to define my_each
