@@ -18,6 +18,15 @@ module Enumerable
     array = my_select(&block)
     length == array.length
   end
+
+  def my_any?(&block)
+    return true unless block_given?
+
+    array = my_select(&block)
+    return false if array.size.zero?
+
+    true
+  end
 end
 
 # You will first have to define my_each
