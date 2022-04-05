@@ -11,6 +11,13 @@ module Enumerable
     my_each { |item| array << item if yield(item) }
     array
   end
+
+  def my_all?(&block)
+    return true unless block_given?
+
+    array = my_select(&block)
+    length == array.length
+  end
 end
 
 # You will first have to define my_each
