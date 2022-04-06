@@ -32,6 +32,12 @@ module Enumerable
     array = my_select(&block)
     array.size.zero? ? true : false
   end
+
+  def my_count(&block)
+    return size unless block_given?
+
+    my_select(&block).size
+  end
 end
 
 # You will first have to define my_each
@@ -41,7 +47,7 @@ end
 class Array
   # Define my_each here
   def my_each
-    length.times { |i| yield(self[i]) } if block_given?
+    size.times { |i| yield(self[i]) } if block_given?
 
     self
   end
