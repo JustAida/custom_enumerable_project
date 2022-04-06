@@ -38,6 +38,12 @@ module Enumerable
 
     my_select(&block).size
   end
+
+  def my_map
+    array = []
+    size.times { |i| array << yield(self[i]) }
+    array
+  end
 end
 
 # You will first have to define my_each
