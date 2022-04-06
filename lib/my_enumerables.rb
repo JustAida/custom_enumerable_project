@@ -39,9 +39,9 @@ module Enumerable
     my_select(&block).size
   end
 
-  def my_map
+  def my_map(proc = nil)
     array = []
-    size.times { |i| array << yield(self[i]) }
+    size.times { |i| array << (block_given? ? yield(self[i]) : proc.call(self[i])) }
     array
   end
 
