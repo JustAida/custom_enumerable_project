@@ -44,6 +44,11 @@ module Enumerable
     size.times { |i| array << yield(self[i]) }
     array
   end
+
+  def my_inject(initial_value)
+    my_each { |value| initial_value = yield(initial_value, value) }
+    initial_value
+  end
 end
 
 # You will first have to define my_each
