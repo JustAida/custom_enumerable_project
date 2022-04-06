@@ -20,12 +20,13 @@ module Enumerable
   end
 
   def my_any?(&block)
-    return true unless block_given?
+    return size.zero? ? false : true unless block_given?
 
     array = my_select(&block)
-    return false if array.size.zero?
+    array.size.zero? ? false : true
+  end
 
-    true
+  def my_none?(&block)
   end
 end
 
