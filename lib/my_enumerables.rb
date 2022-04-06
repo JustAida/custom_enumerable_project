@@ -27,6 +27,10 @@ module Enumerable
   end
 
   def my_none?(&block)
+    return size.zero? ? true : false unless block_given?
+
+    array = my_select(&block)
+    array.size.zero? ? true : false
   end
 end
 
