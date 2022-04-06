@@ -49,6 +49,11 @@ module Enumerable
     my_each { |value| initial_value = yield(initial_value, value) }
     initial_value
   end
+
+  # Old assignments
+  def multiply_els
+    my_inject(1) { |product, number| product * number }
+  end
 end
 
 # You will first have to define my_each
